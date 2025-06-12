@@ -1,0 +1,14 @@
+{
+    "name": "snr/simple_table",
+    "description": "Описывает таблицу с ячейками. Является примером использования пакета snr/plugin",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Snr\\SimpleTable\\": "src/"
+        }
+    },
+    "require": {
+        "snr/plugin": "dev-main"
+    },
+	"minimum-stability": "dev"
+}
