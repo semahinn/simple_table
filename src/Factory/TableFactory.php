@@ -31,16 +31,16 @@ class TableFactory extends DefaultFactory implements TableFactoryInterface {
     // В простейшем случае это всегда массив, каждый элемент
     // которого как минимум должен иметь ключ 'id'
     if (!empty($configuration['columns']) && is_array($configuration['columns'])) {
-      foreach ($configuration['columns'] as $value) {
+      foreach ($configuration['columns'] as $column_key => $value) {
         if (isset($value['id']) && is_string($value['id'])) {
           $id = $value['id'];
-          $column_definitions[$id] = [];
-          unset($value['id']);
-          foreach ($value as $k => $v) {
-            $column_definitions[$id][$k] = $v;
-          }
         }
-        else throw new \InvalidArgumentException("");
+        else $id = $column_key;
+        $column_definitions[$id] = ['id' => $id];
+        unset($value['id']);
+        foreach ($value as $k => $v) {
+          $column_definitions[$id][$k] = $v;
+        }
       }
     }
 
