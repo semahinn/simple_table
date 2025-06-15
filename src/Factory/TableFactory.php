@@ -37,7 +37,7 @@ class TableFactory extends DefaultFactory implements TableFactoryInterface {
           $column_definitions[$id] = [];
           unset($value['id']);
           foreach ($value as $k => $v) {
-            $column_definitions[$id][$k] = [$v];
+            $column_definitions[$id][$k] = $v;
           }
         }
         else throw new \InvalidArgumentException("");
